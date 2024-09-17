@@ -11,7 +11,7 @@ namespace Tester
 {
     public class UnitTest1
     {
-        private readonly PurchaseOrderDetailRepository _repository;
+        private readonly SaleRepository _repository;
 
         public UnitTest1()
         {
@@ -20,7 +20,7 @@ namespace Tester
                 .Options;
 
             var context = new InventoryContext(options);
-            _repository = new PurchaseOrderDetailRepository(context);
+            _repository = new SaleRepository(context);
         }
 
         //[Fact]
@@ -35,14 +35,14 @@ namespace Tester
         //}
 
         [Fact]
-        public async Task GetAllPod()
+        public async Task GetAllSales()
         {
             // Act
-            var purchase = await _repository.GetPODbyId(2);
+            var sale = await _repository.GetAllSales();
 
             // Assert
-            Assert.NotNull(purchase);
-            Assert.Equal(20, purchase.QuantityOrdered);
+            Assert.NotNull(sale);
+            Assert.Equal(49.95, sale.SaleAmount);
         }
 
         //[Fact]
