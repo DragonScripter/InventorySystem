@@ -47,9 +47,9 @@ namespace Inventory.Controllers
             return View(purchaseOrders);
         }
 
-        public async Task<IActionResult> PurchaseOrderDetails()
+        public async Task<IActionResult> PurchaseOrderDetailRepository()
         {
-            var pod = await _podRepository.GetAllPOD();
+            var pod= await _podRepository.GetAllPOD();
             return View(pod);
         }
 

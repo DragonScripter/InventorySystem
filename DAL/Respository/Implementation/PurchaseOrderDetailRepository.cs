@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Respository.Implementation
 {
-    public class PODRespository : IPurchaseOrderDetailRepository
+    public class PurchaseOrderDetailRepository : IPurchaseOrderDetailRepository
     {
         private readonly InventoryContext _context;
 
-        public PODRespository(InventoryContext context) 
+        public PurchaseOrderDetailRepository(InventoryContext context) 
         {
             _context = new InventoryContext();
         }
@@ -26,6 +27,12 @@ namespace DAL.Respository.Implementation
         {
             return await _context.PurchaseOrderDetails.ToListAsync();
         }
+
+        public int Count(IEnumerable<PurchaseOrderDetail> POD)
+        {
+            return _context.PurchaseOrderDetails.Count();
+        }
+
         public async Task AddPOD(PurchaseOrderDetail pod)
         {
             if (pod == null)
@@ -51,11 +58,6 @@ namespace DAL.Respository.Implementation
                 _context.PurchaseOrderDetails.Remove(pod);
                 await _context.SaveChangesAsync();
             }
-        }
-
-        public int Count(IEnumerable<PurchaseOrderDetail> POD)
-        {
-            return _context.PurchaseOrderDetails.Count();
         }
     }
 }

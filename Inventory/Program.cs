@@ -15,7 +15,7 @@ builder.Services.AddDbContext<InventoryContext>(options =>
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IPurchaseOrder, PurchaseOrderRepository>();
-builder.Services.AddScoped<IPurchaseOrderDetailRepository, PODRespository>();
+builder.Services.AddScoped<IPurchaseOrderDetailRepository, PurchaseOrderDetailRepository>();
 builder.Services.AddScoped<ISaleRepository, SaleRepository>();
 builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
 
