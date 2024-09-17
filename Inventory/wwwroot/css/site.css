@@ -1,0 +1,107 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 30px;
+    text-align: center;
+}
+
+.box {
+    flex: 1 1 calc(50% - 40px);
+    border: 2px solid #258cfb;
+    border-radius: 10px;
+    height: 15vh;
+    padding: 20px;
+    width: 300px;
+}
+
+.box a 
+{
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+
+}
+
+.box a:hover
+{
+    color:darkgray;
+
+}
+
+.icon1, .icon2, .icon3, .icon4, .icon5 
+{
+    width: 50px;
+}
+
+.table1 {
+    width: 100%; 
+    max-width: 1200px;
+    border-collapse: collapse; 
+    margin-top: 20px;
+    table-layout: fixed;
+    border: 2px solid #000; 
+}
+
+    .table1 th, .table1 td {
+        border: 1px solid #ddd;
+        padding: 15px; 
+        text-align: left; 
+        font-size: 16px; 
+    }
+
+    .table1 th {
+        background-color: #f4f4f4; 
+        font-weight: bold; 
+    }
+
+    .table1 tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .table1 tr:nth-child(odd) {
+        background-color: #ffffff; 
+    }
+
+    .table1 tr:hover {
+        background-color: #eaeaea; 
+    }
+    
+    .table1 th, .table1 td {
+        border: 1px solid #000;
+    }
+
+    .right {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 20px;
+    }
+
+    .right a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+    }

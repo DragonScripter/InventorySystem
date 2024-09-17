@@ -1,0 +1,36 @@
+﻿<div class="text-center">
+    <h1 class="display-4">Inventory System</h1>
+    <div class="right">
+        @*<a href="@Url.Action("Create", "Home")">Create</a>*@
+        <button>Create</button>
+        <button>Delete</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Lists</th>
+            </tr>
+        </thead>
+    </table>
+
+    <table class="table1">
+        <thead>
+            <tr>
+                <th>OrderDetail ID</th>
+                <th>Order ID</th>
+                <th>Product ID</th>
+                <th>Quantity Ordered</th>
+            </tr>
+        <tbody>
+             @foreach (var pod in Model)
+                {
+                <tr>
+                    <td>@pod.OrderDetailID</td>
+                    <td>@pod.OrderID</td>
+                    <td>@pod.ProductID</td>
+                    <td>@pod.QuantityOrdered</td>
+                </tr>
+                }
+        </tbody>
+    </table>
+</div>

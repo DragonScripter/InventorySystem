@@ -1,0 +1,36 @@
+﻿<div class="text-center">
+    <h1 class="display-4">Inventory System</h1>
+    <div class="right">
+        <a href="@Url.Action("Create", "Home")">Create</a>
+        <button>Create</button>
+        <button>Delete</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Lists</th>
+            </tr>
+        </thead>
+    </table>
+
+    <table class="table1">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>SKU</th>
+                <th>Price</th>
+            </tr>
+            <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.ProductID</td>
+                    <td>@product.Name</td>
+                    <td>@product.SKU</td>
+                    <td>@product.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
