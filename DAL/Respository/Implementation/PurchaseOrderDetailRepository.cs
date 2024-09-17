@@ -16,7 +16,7 @@ namespace DAL.Respository.Implementation
 
         public PurchaseOrderDetailRepository(InventoryContext context) 
         {
-            _context = new InventoryContext();
+            _context = context;
         }
         public async Task<PurchaseOrderDetail?> GetPODbyId(int id)
         {

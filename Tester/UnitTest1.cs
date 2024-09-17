@@ -42,8 +42,7 @@ namespace Tester
 
             // Assert
             Assert.NotNull(purchase);
-            Assert.Equal(50, purchase.QuantityOrdered);
-            Assert.Equal(30, purchase.QuantityOrdered);
+            Assert.Equal(20, purchase.QuantityOrdered);
         }
 
         //[Fact]
