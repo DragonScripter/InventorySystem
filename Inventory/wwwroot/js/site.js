@@ -12,6 +12,14 @@ function closeForm()
     document.getElementById("form-container").style.display = 'none';
 }
 
+function deleteForm() {
+    document.getElementById("delete-container").style.display = "flex";
+}
+
+function closeDelete() {
+    document.getElementById("delete-container").style.display = "none";
+}
+
 window.onclick = function (event) {
     const outside = document.getElementById("form-container");
     if (event.target == outside) {

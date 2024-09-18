@@ -11,7 +11,7 @@ namespace Tester
 {
     public class UnitTest1
     {
-        private readonly SaleRepository _repository;
+        private readonly ProductRepository _repository;
 
         public UnitTest1()
         {
@@ -20,7 +20,7 @@ namespace Tester
                 .Options;
 
             var context = new InventoryContext(options);
-            _repository = new SaleRepository(context);
+            _repository = new ProductRepository(context);
         }
 
         //[Fact]
@@ -34,25 +34,26 @@ namespace Tester
         //    Assert.Equal("SKU001", result.SKU);
         //}
 
+        //[Fact]
+        //public async Task GetAllSales()
+        //{
+        //    // Act
+        //    var sale = await _repository.GetAllSales();
+
+        //    // Assert
+        //    Assert.NotNull(sale);
+        //    Assert.Equal(49.95, sale.SaleAmount);
+        //}
+
         [Fact]
-        public async Task GetAllSales()
+        public async Task DeleteProduct()
         {
-            // Act
-            var sale = await _repository.GetAllSales();
+            await _repository.DeleteProduct(1002);
 
             // Assert
-            Assert.NotNull(sale);
-            Assert.Equal(49.95, sale.SaleAmount);
+            var deletedProduct = await _repository.GetProductById(1002);
+            Assert.Null(deletedProduct); // Ensure the product is deleted
         }
-
-        //[Fact]
-        //public async Task AddProduct()
-        //{
-        //    var product = new Product { Name = "Test Product1", SKU = "SKU 109", Price = 30.9m };
-        //    await _repository.AddProduct(product);
-        //    var result =  await _repository.GetProductById(4);
-        //    Assert.Equal("Test Product1", result.Name);
-        //}
 
         //[Fact]
         //public async Task UpdateProduct()
@@ -71,7 +72,7 @@ namespace Tester
         //    Assert.NotNull(result);
         //    Assert.Equal("Machine", result.Name);
         //    Assert.Equal(50m, result.Price);
-           
+
         //}
     }
 }

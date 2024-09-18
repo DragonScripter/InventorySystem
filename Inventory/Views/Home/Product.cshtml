@@ -2,7 +2,7 @@
     <h1 class="display-4">Inventory System</h1>
     <div class="right">
         <button onclick="showForm()">Create</button>
-        <button>Delete</button>
+        <button onclick="deleteForm()">Delete</button>
     </div>
     <table>
         <thead>
@@ -80,3 +80,20 @@
         </form>
     </div>
 </div>
+<div class="delete-container" id="delete-container">
+    <div class="delete-content">
+        <form asp-action="Delete" method="post">
+            <div class="form-group">
+                <label for="ID">ID Number</label>
+                <input type="number" id="id" name="id" class="form-control" required />
+                <span class="text-danger" id="IdentificationError"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-primary" />
+                <button type="button" class="btn btn-primary" onclick="closeDelete()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+

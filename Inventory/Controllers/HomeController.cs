@@ -90,9 +90,23 @@ namespace Inventory.Controllers
             {
                 
                 _repository.AddProduct(model);
-                return RedirectToAction("Index");
+                return RedirectToAction("Product");
             }
             return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest();
+            }
+
+            await _repository.DeleteProduct(id);
+
+            return RedirectToAction("Product");
         }
 
         public IActionResult Privacy()
@@ -151,14 +165,6 @@ namespace Inventory.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(product);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(int id)
-        {
-            await _repository.DeleteProduct(id);
-            return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Main()

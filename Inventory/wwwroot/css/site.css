@@ -112,7 +112,7 @@ body {
         font-weight: bold;
     }
 
-.form-container {
+.form-container, .delete-container {
     display: none;
     position: fixed;
     left: 0;
@@ -139,3 +139,12 @@ body {
     margin-bottom:15px;
 }
 
+.delete-content 
+{
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    height: 150px;
+    text-align: center;
+}
