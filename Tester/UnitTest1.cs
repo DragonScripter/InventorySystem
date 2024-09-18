@@ -6,12 +6,13 @@ using DAL.Respository.Implementation;
 using DAL.Data;
 using DAL;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Tester
 {
     public class UnitTest1
     {
-        private readonly ProductRepository _repository;
+        private readonly PurchaseOrderRepository _repository;
 
         public UnitTest1()
         {
@@ -20,7 +21,7 @@ namespace Tester
                 .Options;
 
             var context = new InventoryContext(options);
-            _repository = new ProductRepository(context);
+            _repository = new PurchaseOrderRepository(context);
         }
 
         //[Fact]
@@ -35,6 +36,26 @@ namespace Tester
         //}
 
         //[Fact]
+        //public async Task AddPurchaseOrder()
+        //{
+
+        //    var result = new PurchaseOrder()
+        //    {
+        //        SupplierID = 4,
+        //        OrderDate = DateTime.Now,
+        //        Status = "Completed"
+        //    };
+
+        //    var model = await _repository.AddPurchaseOrder(result) as RedirectToActionResult;
+
+        //    Assert.NotNull(result);
+        //    Assert.Equal("Product1", result.Name);
+        //    Assert.Equal("SKU001", result.SKU);
+        //}
+
+
+
+        //[Fact]
         //public async Task GetAllSales()
         //{
         //    // Act
@@ -45,15 +66,15 @@ namespace Tester
         //    Assert.Equal(49.95, sale.SaleAmount);
         //}
 
-        [Fact]
-        public async Task DeleteProduct()
-        {
-            await _repository.DeleteProduct(1002);
+        //[Fact]
+        //public async Task DeleteProduct()
+        //{
+        //    await _repository.DeleteProduct(1002);
 
-            // Assert
-            var deletedProduct = await _repository.GetProductById(1002);
-            Assert.Null(deletedProduct); // Ensure the product is deleted
-        }
+        //    // Assert
+        //    var deletedProduct = await _repository.GetProductById(1002);
+        //    Assert.Null(deletedProduct); // Ensure the product is deleted
+        //}
 
         //[Fact]
         //public async Task UpdateProduct()

@@ -47,6 +47,8 @@ namespace Inventory.Controllers
             return View(purchaseOrders);
         }
 
+
+
         public async Task<IActionResult> PurchaseOrderDetail()
         {
             var pod= await _podRepository.GetAllPOD();
@@ -94,6 +96,7 @@ namespace Inventory.Controllers
             }
             return View(model);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
