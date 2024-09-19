@@ -35,10 +35,6 @@ public partial class InventoryContext : DbContext
        //  
         //
 
-        if (!optionsBuilder.IsConfigured) 
-        {
-            optionsBuilder.UseSqlServer("Server=(localdb)//ProjectModels;Database=Inventory;Trusted_Connection=True;");
-        }
        }
 
 
