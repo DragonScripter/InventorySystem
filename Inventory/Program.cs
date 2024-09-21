@@ -13,6 +13,13 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnC
 builder.Services.AddDbContext<InventoryContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
+void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry(builder.Configuration["ApplicationInsights:InstrumentationKey"]);
+    // Other service configurations...
+}
+
+
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IPurchaseOrder, PurchaseOrderRepository>();
 builder.Services.AddScoped<IPurchaseOrderDetailRepository, PurchaseOrderDetailRepository>();

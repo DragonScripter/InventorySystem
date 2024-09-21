@@ -41,36 +41,35 @@
 <div class="form-container" id="form-container">
     <div class="form-content">
         <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
             <div class="form-group">
                 <label for="Name">Name</label>
-                <input type="text" id="Name" name="Name" class="form-control" required />
+                <input type="text" id="Name" name="Name" class="form-control" placeholder="Enter product name" required />
                 <span class="text-danger" id="NameError"></span>
             </div>
 
             <div class="form-group">
                 <label for="SKU">SKU</label>
-                <input type="text" id="SKU" name="SKU" class="form-control" required />
+                <input type="text" id="SKU" name="SKU" class="form-control" placeholder="Enter SKU" required />
                 <span class="text-danger" id="SKUError"></span>
             </div>
 
             <div class="form-group">
                 <label for="Price">Price</label>
-                <input type="number" id="Price" name="Price" class="form-control" step="0.01" required />
+                <input type="number" id="Price" name="Price" class="form-control" step="0.01" min="0.01" required />
                 <span class="text-danger" id="PriceError"></span>
             </div>
-
 
             <div class="form-group">
                 <label for="Quantity">Quantity</label>
-                <input type="number" id="Quantity" name="Quantity" class="form-control" step="0.01" required />
+                <input type="number" id="Quantity" name="Quantity" class="form-control" min="0" required />
                 <span class="text-danger" id="QuantityError"></span>
             </div>
 
-
             <div class="form-group">
-                <label for="Supplier">SupplierID</label>
-                <input type="number" id="Supplier" name="Supplier" class="form-control" step="0.01" required />
-                <span class="text-danger" id="PriceError"></span>
+                <label for="Supplier">Supplier ID</label>
+                <input type="number" id="Supplier" name="Supplier" class="form-control" required />
+                <span class="text-danger" id="SupplierError"></span>
             </div>
 
             <div class="form-group">
@@ -96,4 +95,3 @@
         </form>
     </div>
 </div>
-
