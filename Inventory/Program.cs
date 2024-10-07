@@ -13,11 +13,18 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnC
 builder.Services.AddDbContext<InventoryContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
-void ConfigureServices(IServiceCollection services)
-{
-    services.AddApplicationInsightsTelemetry(builder.Configuration["ApplicationInsights:InstrumentationKey"]);
-    // Other service configurations...
-}
+
+//void ConfigureServices(IServiceCollection services)
+//{
+//    services.AddApplicationInsightsTelemetry(options =>
+//    {
+//        options.ConnectionString = builder.Configuration["ApplicationInsights:ConnectionString"];
+//    });
+
+    
+//}
+
+
 
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
@@ -29,11 +36,15 @@ builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseDeveloperExceptionPage(); // Enables detailed error pages in development
+//}
+//else
+//{
+//    app.UseExceptionHandler("/Home/Error"); // Redirect to error page in production
+//    app.UseHsts(); // Use HTTP Strict Transport Security in production
+//}
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
